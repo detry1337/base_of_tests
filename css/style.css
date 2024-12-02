@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Устанавливаем минимальную высоту для всего тела страницы */
+}
+
+header {
+  background-color: #0078d7;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  background-color: #0056b3;
+  padding: 10px 0;
+  text-align: center; /* Центрируем навигацию */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 20px auto;
+  max-width: 1200px; /* Ограничивает максимальное количество карточек в ряду до 4 */
+  flex-grow: 1; /* Позволяет контейнеру занимать все доступное пространство */
+}
+
+a {
+  user-select: none; /* Запрещаем выделение текста */
+  text-decoration: none; /* Убираем подчеркивание */
+  color: inherit; /* Наследуем цвет от родительского элемента */
+}
+.country-block {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  user-select: none; /* Запрещаем выделение текста */
+  text-decoration: none; /* Убираем подчеркивание для ссылок внутри карточек */
+  color: inherit; /* Наследуем цвет от родительского элемента */
+}
+
+.country-block:hover {
+  transform: scale(1.05); /* Уменьшаем увеличение */
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.country-flag img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #0056b3;
+}
+
+.country-info {
+  max-height: 50px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.country-block:hover .country-info {
+  max-height: 1000px;
+}
+
+footer {
+  background-color: #0078d7;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  margin-top: auto; /* Прижимаем футер к низу */
+}

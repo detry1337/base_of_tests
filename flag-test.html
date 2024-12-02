@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тесты по странам - База знаний</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/test.css">
+</head>
+<body>
+  <header class="text-center py-4">
+    <h1>База знаний о странах мира</h1>
+  </header>
+
+  <nav class="text-center mb-3">
+    <a href="index.html">Главная</a>
+    <a href="countries.html">Информация о странах</a>
+    <a href="tests.html">Тесты по странам</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <main class="main-content container my-5">
+    <h1 class="text-center mb-4">Тесты по странам</h1>
+
+    <!-- Счетчики правильных и неправильных ответов -->
+    <div class="counters text-center mb-4">
+      <p>Правильных ответов: <span id="correct-counter">0</span></p>
+      <p>Неправильных ответов: <span id="incorrect-counter">0</span></p>
+    </div>
+
+    <!-- Тест по флагам стран -->
+    <div class="test-block">
+      <h2 class="text-center mb-4">Угадайте страну по флагу</h2>
+      <div id="quiz" class="text-center">
+        <img id="flag" src="img/russia.png" alt="Флаг" class="img-fluid mb-3 rounded" style="max-width: 300px;">
+        <p>Какой стране принадлежит этот флаг?</p>
+        <form id="quiz-form">
+          <div class="mb-2">
+            <input type="radio" id="answer1" name="answer" value="Россия">
+            <label for="answer1">Россия</label>
+          </div>
+          <div class="mb-2">
+            <input type="radio" id="answer2" name="answer" value="Франция">
+            <label for="answer2">Франция</label>
+          </div>
+          <div class="mb-2">
+            <input type="radio" id="answer3" name="answer" value="Япония">
+            <label for="answer3">Япония</label>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="checkAnswer()">Ответить</button>
+        </form>
+        <p id="result" class="mt-3"></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Всплывающее окно с результатом -->
+  <div id="result-box" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: #fff; border: 2px solid #0078d7; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); text-align: center; z-index: 1000;"></div>
+
+  <footer class="text-center py-4">
+    <p>&copy; 2024 База знаний о странах</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
