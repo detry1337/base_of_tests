@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тесты по странам - База знаний</title>
+  <title>Тесты по столицам - База знаний</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/test.css">
 </head>
@@ -20,7 +20,7 @@
   </nav>
 
   <main class="main-content container my-5">
-    <h1 class="text-center mb-4">Тесты по странам</h1>
+    <h1 class="text-center mb-4">Тесты по столицам</h1>
 
     <!-- Счетчики правильных и неправильных ответов -->
     <div class="counters text-center mb-4">
@@ -28,24 +28,25 @@
       <p>Неправильных ответов: <span id="incorrect-counter">0</span></p>
     </div>
 
-    <!-- Тест по флагам стран -->
+    <!-- Тест по столицам стран -->
     <div class="test-block">
-      <h2 class="text-center mb-4">Угадайте страну по флагу</h2>
+      <h2 class="text-center mb-4">Угадайте столицу по стране</h2>
       <div id="quiz" class="text-center">
-        <img id="flag" src="img/russia.png" alt="Флаг" class="img-fluid mb-3 rounded" style="max-width: 300px;">
-        <p>Какой стране принадлежит этот флаг?</p>
+        <p>Какая столица у этой страны?</p>
+        <!-- Добавляем элемент для флага страны -->
+        <img id="flag" src="" alt="Страна" class="img-fluid mb-3 rounded" style="max-width: 300px;">
         <form id="quiz-form">
           <div class="mb-2">
-            <input type="radio" id="answer1" name="answer" value="Россия">
-            <label for="answer1">Россия</label>
+            <input type="radio" id="answer1" name="answer" value="Москва">
+            <label for="answer1">Москва</label>
           </div>
           <div class="mb-2">
-            <input type="radio" id="answer2" name="answer" value="Франция">
-            <label for="answer2">Франция</label>
+            <input type="radio" id="answer2" name="answer" value="Париж">
+            <label for="answer2">Париж</label>
           </div>
           <div class="mb-2">
-            <input type="radio" id="answer3" name="answer" value="Япония">
-            <label for="answer3">Япония</label>
+            <input type="radio" id="answer3" name="answer" value="Токио">
+            <label for="answer3">Токио</label>
           </div>
           <button type="button" class="btn btn-primary" onclick="checkAnswer()">Ответить</button>
         </form>
@@ -61,6 +62,6 @@
     <p>&copy; 2024 База знаний о странах</p>
   </footer>
 
-  <script src="js/flags.js"></script>
+  <script src="js/capitals.js"></script>
 </body>
 </html>

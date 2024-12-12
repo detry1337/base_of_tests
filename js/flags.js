@@ -9,12 +9,12 @@ const countries = [
   { country: "Китай", flag: "img/china.webp" },
   { country: "Бразилия", flag: "img/brazil.png" },
   { country: "Испания", flag: "img/spain.png" },
-  { country: "Канада", flag: "img/canada.png" },
+  { country: "Канада", flag: "img/canada.webp" },
   { country: "Индия", flag: "img/india.png" },
-  { country: "Швейцария", flag: "img/switzerland.png" }, // Новая страна
-  { country: "Австралия", flag: "img/australia.png" }, // Новая страна
-  { country: "Мексика", flag: "img/mexico.png" }, // Новая страна
-  { country: "Египет", flag: "img/egypt.png" } // Новая страна
+  { country: "Швейцария", flag: "img/switzerland.png" },
+  { country: "Австралия", flag: "img/australia.svg" },
+  { country: "Мексика", flag: "img/mexico.png" },
+  { country: "Египет", flag: "img/egypt.png" },
 ];
 
 // Переменные для отслеживания состояния теста
@@ -109,21 +109,57 @@ function finishQuiz() {
       ? "Тест не пройден. Попробуйте снова!"
       : "Поздравляем! Вы прошли тест!";
 
-  // Показываем всплывающее окно
-  const resultBox = document.createElement("div");
-  resultBox.textContent = resultMessage;
-  resultBox.style.position = "fixed";
-  resultBox.style.top = "50%";
-  resultBox.style.left = "50%";
-  resultBox.style.transform = "translate(-50%, -50%)";
-  resultBox.style.padding = "20px";
-  resultBox.style.backgroundColor = "#fff";
-  resultBox.style.border = "2px solid #0078d7";
-  resultBox.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
-  resultBox.style.textAlign = "center";
-  resultBox.style.zIndex = "1000";
+  // Итоговые данные
+  const resultText = document.createElement("p");
+  resultText.textContent = resultMessage;
+  resultBox.appendChild(resultText);
+
+  const scoreText = document.createElement("p");
+  scoreText.textContent = `Правильных ответов: ${correctAnswers} из ${countries.length}`;
+  resultBox.appendChild(scoreText);
+
+  // Стили кнопок
+  const buttonStyle = {
+    backgroundColor: "#0078d7",
+    color: "#fff",
+    border: "none",
+    padding: "10px 20px",
+    borderRadius: "5px",
+    cursor: "pointer",
+    margin: "10px",
+    fontSize: "16px",
+  };
+
+  // Кнопка повторного прохождения теста
+  const retryButton = document.createElement("button");
+  retryButton.textContent = "Пройти тест ещё раз";
+  Object.assign(retryButton.style, buttonStyle);
+  retryButton.onclick = () => {
+    document.body.removeChild(resultBox);
+    resetQuiz();
+  };
+  resultBox.appendChild(retryButton);
+
+  // Кнопка возврата к списку тестов
+  const backButton = document.createElement("button");
+  backButton.textContent = "Вернуться к списку тестов";
+  Object.assign(backButton.style, buttonStyle);
+  backButton.onclick = () => {
+    window.location.href = "tests.html";
+  };
+  resultBox.appendChild(backButton);
 
   document.body.appendChild(resultBox);
+}
+
+// Сброс теста
+function resetQuiz() {
+  correctAnswers = 0;
+  incorrectAnswers = 0;
+  usedIndexes.length = 0;
+  correctCounter.textContent = correctAnswers;
+  incorrectCounter.textContent = incorrectAnswers;
+  loadQuiz();
 }
 
 // Инициализация теста
