@@ -10,7 +10,11 @@ const countries = [
   { country: "Бразилия", flag: "img/brazil.png" },
   { country: "Испания", flag: "img/spain.png" },
   { country: "Канада", flag: "img/canada.png" },
-  { country: "Индия", flag: "img/india.png" }
+  { country: "Индия", flag: "img/india.png" },
+  { country: "Швейцария", flag: "img/switzerland.png" }, // Новая страна
+  { country: "Австралия", flag: "img/australia.png" }, // Новая страна
+  { country: "Мексика", flag: "img/mexico.png" }, // Новая страна
+  { country: "Египет", flag: "img/egypt.png" } // Новая страна
 ];
 
 // Переменные для отслеживания состояния теста
