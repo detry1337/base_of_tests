@@ -8,6 +8,9 @@ const countries = [
   { country: "Япония", flag: "img/japan.svg" },
   { country: "Китай", flag: "img/china.webp" },
   { country: "Бразилия", flag: "img/brazil.png" },
+  { country: "Испания", flag: "img/spain.png" },
+  { country: "Канада", flag: "img/canada.png" },
+  { country: "Индия", flag: "img/india.png" }
 ];
 
 // Переменные для отслеживания состояния теста
