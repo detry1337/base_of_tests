@@ -140,3 +140,6 @@ body {
     margin-top: auto;
   }
   
+img {
+  border: 1px solid #0078d7;  
+}
