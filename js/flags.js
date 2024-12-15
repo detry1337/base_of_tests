@@ -102,65 +102,78 @@ function checkAnswer() {
   setTimeout(loadQuiz, 300);
 }
 
-// Завершение теста
-function finishQuiz() {
-  const resultMessage =
-    incorrectAnswers > correctAnswers
-      ? "Тест не пройден. Попробуйте снова!"
-      : "Поздравляем! Вы прошли тест!";
+// Завершение теста  
+function finishQuiz() {  
+    const resultMessage =  
+        incorrectAnswers > correctAnswers  
+            ? "Тест не пройден. Попробуйте снова!"  
+            : "Поздравляем! Вы прошли тест!";  
 
-  // Итоговые данные
-  const resultText = document.createElement("p");
-  resultText.textContent = resultMessage;
-  resultBox.appendChild(resultText);
+    // Показываем всплывающее окно  
+    const resultBox = document.createElement("div");  
+    resultBox.style.position = "fixed";  
+    resultBox.style.top = "50%";  
+    resultBox.style.left = "50%";  
+    resultBox.style.transform = "translate(-50%, -50%)";  
+    resultBox.style.padding = "20px";  
+    resultBox.style.backgroundColor = "#fff";  
+    resultBox.style.border = "2px solid #0078d7";  
+    resultBox.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";  
+    resultBox.style.textAlign = "center";  
+    resultBox.style.zIndex = "1000";  
 
-  const scoreText = document.createElement("p");
-  scoreText.textContent = `Правильных ответов: ${correctAnswers} из ${countries.length}`;
-  resultBox.appendChild(scoreText);
+    // Итоговые данные  
+    const resultText = document.createElement("p");  
+    resultText.textContent = resultMessage;  
+    resultBox.appendChild(resultText);  
 
-  // Стили кнопок
-  const buttonStyle = {
-    backgroundColor: "#0078d7",
-    color: "#fff",
-    border: "none",
-    padding: "10px 20px",
-    borderRadius: "5px",
-    cursor: "pointer",
-    margin: "10px",
-    fontSize: "16px",
-  };
+    const scoreText = document.createElement("p");  
+    scoreText.textContent = `Правильных ответов: ${correctAnswers} из ${countries.length}`;  
+    resultBox.appendChild(scoreText);  
 
-  // Кнопка повторного прохождения теста
-  const retryButton = document.createElement("button");
-  retryButton.textContent = "Пройти тест ещё раз";
-  Object.assign(retryButton.style, buttonStyle);
-  retryButton.onclick = () => {
-    document.body.removeChild(resultBox);
-    resetQuiz();
-  };
-  resultBox.appendChild(retryButton);
+    // Стили кнопок  
+    const buttonStyle = {  
+        backgroundColor: "#0078d7",  
+        color: "#fff",  
+        border: "none",  
+        padding: "10px 20px",  
+        borderRadius: "5px",  
+        cursor: "pointer",  
+        margin: "10px",  
+        fontSize: "16px",  
+    };  
 
-  // Кнопка возврата к списку тестов
-  const backButton = document.createElement("button");
-  backButton.textContent = "Вернуться к списку тестов";
-  Object.assign(backButton.style, buttonStyle);
-  backButton.onclick = () => {
-    window.location.href = "tests.html";
-  };
-  resultBox.appendChild(backButton);
+    // Кнопка повторного прохождения теста  
+    const retryButton = document.createElement("button");  
+    retryButton.textContent = "Пройти тест ещё раз";  
+    Object.assign(retryButton.style, buttonStyle);  
+    retryButton.onclick = () => {  
+        document.body.removeChild(resultBox);  
+        resetQuiz();  
+    };  
+    resultBox.appendChild(retryButton);  
 
-  document.body.appendChild(resultBox);
-}
+    // Кнопка возврата к списку тестов  
+    const backButton = document.createElement("button");  
+    backButton.textContent = "Вернуться к списку тестов";  
+    Object.assign(backButton.style, buttonStyle);  
+    backButton.onclick = () => {  
+        window.location.href = "tests.html";  
+    };  
+    resultBox.appendChild(backButton);  
 
-// Сброс теста
-function resetQuiz() {
-  correctAnswers = 0;
-  incorrectAnswers = 0;
-  usedIndexes.length = 0;
-  correctCounter.textContent = correctAnswers;
-  incorrectCounter.textContent = incorrectAnswers;
-  loadQuiz();
-}
+    document.body.appendChild(resultBox);  
+}  
 
-// Инициализация теста
+// Сброс теста  
+function resetQuiz() {  
+    correctAnswers = 0;  
+    incorrectAnswers = 0;  
+    usedIndexes.length = 0;  
+    correctCounter.textContent = correctAnswers;  
+    incorrectCounter.textContent = incorrectAnswers;  
+    loadQuiz();  
+}  
+
+// Инициализация теста  
 loadQuiz();
