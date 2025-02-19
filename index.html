@@ -143,7 +143,7 @@
         <h3>Начните своё путешествие</h3>
         <p>Перейдите в разделы сайта и узнайте больше о странах мира. Изучайте, тестируйте и наслаждайтесь процессом обучения!</p>
         <div class="text-center">
-            <a href="countries.html" class="btn btn-primary">Исследовать страны</a>
+            <a href="countries.html" class="btn btn-primary" data-goal="explore_countries_click">Исследовать страны</a>
             <a href="tests.html" class="btn btn-secondary">Пройти тесты</a>
         </div>
     </section>
@@ -219,5 +219,12 @@
       saveAnswer(); // Просто скрываем уведомление и сохраняем ответ
     });
   </script>
+
+    <!-- Скрипт для отслеживания клика по кнопке "Исследовать страны" -->
+    <script type="text/javascript">
+        document.querySelector('[data-goal="explore_countries_click"]').addEventListener('click', function() {
+          ym(99979197, 'reachGoal', 'button_click'); // Отправляем событие в Яндекс.Метрику
+        });
+    </script>
 </body>
 </html>
