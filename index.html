@@ -39,7 +39,7 @@
       opacity: 0;
       transform: translateY(100%);
     }
-    .cookie-notification_hidden_yes {
+    .cookie-notification.cookie-notification_visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -159,7 +159,7 @@
   </footer>
 
   <!-- Уведомление о сборе данных -->
-  <div class="cookie-notification cookie-notification_hidden_yes">
+  <div class="cookie-notification" id="cookie-notification">
     <div class="cookie-notification__header">Предупреждение о сборе статистики</div>
     <div class="cookie-notification__body">
       <p>Этот сайт собирает статистику посещения и данные посетителей.</p>
@@ -174,66 +174,49 @@
   <!-- Скрипты для работы с уведомлением и Яндекс.Метрикой -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.2/js.cookie.js"></script>
   <script type="text/javascript">
-    var messageElement = document.querySelector('.cookie-notification');
-    // Если нет cookies, то показываем плашку
+    var messageElement = document.getElementById('cookie-notification');
+
+    // Проверяем, есть ли cookie с согласием
     if (!Cookies.get('agreement')) {
+      // Если cookie нет, показываем уведомление
       showMessage();
-    } else {
-      initCounter();
     }
 
-    // Функция добавляет класс к DOM-элементу
-    function addClass(o, c) {
-      var re = new RegExp("(^|\\s)" + c + "(\\s|$)", "g");
-      if (!o || re.test(o.className)) {
-        return;
-      }
-      o.className = (o.className + " " + c).replace(/\s+/g, " ").replace(/(^ | $)/g, "");
-    }
-
-    // Функция удаляет класс из DOM-элемента
-    function removeClass(o, c) {
-      var re = new RegExp('(^|\\s)' + c + '(\\s|$)', 'g');
-      if (!o) {
-        return;
-      }
-      o.className = o.className.replace(re, '$1').replace(/\s+/g, ' ').replace(/(^ | $)/g, '');
-    }
-
-    // Функция, которая прячет предупреждение
-    function hideMessage() {
-      addClass(messageElement, 'cookie-notification_hidden_yes');
-    }
-
-    // Функция, которая показывает предупреждение
+    // Функция, которая показывает уведомление
     function showMessage() {
-      removeClass(messageElement, 'cookie-notification_hidden_yes');
+      messageElement.classList.add('cookie-notification_visible');
     }
 
+    // Функция, которая прячет уведомление
+    function hideMessage() {
+      messageElement.classList.remove('cookie-notification_visible');
+    }
+
+    // Сохраняем ответ пользователя и скрываем уведомление
     function saveAnswer() {
-      // Прячем предупреждение
       hideMessage();
-      // Ставим cookies
-      Cookies.set('agreement', '1');
+      // Устанавливаем cookie на 1 год
+      Cookies.set('agreement', 'true', { expires: 365 });
     }
 
+    // Инициализация Яндекс.Метрики
     function initCounter() {
       try {
         ym(99979197, 'init', {});
-        saveAnswer();
       } catch (error) {
         console.error('Ошибка при инициализации Яндекс.Метрики:', error);
       }
     }
 
     // Нажатие кнопки "Я согласен"
-    document.querySelector('#yes').addEventListener('click', function () {
-      initCounter();
+    document.getElementById('yes').addEventListener('click', function () {
+      saveAnswer();
+      initCounter(); // Инициализируем Яндекс.Метрику
     });
 
     // Нажатие кнопки "Я не согласен"
-    document.querySelector('#no').addEventListener('click', function () {
-      hideMessage();
+    document.getElementById('no').addEventListener('click', function () {
+      saveAnswer(); // Просто скрываем уведомление и сохраняем ответ
     });
   </script>
 </body>
