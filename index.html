@@ -1,109 +1,240 @@
-<!DOCTYPE html>  
-<html lang="ru">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>Главная - База знаний о странах</title>  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">  
-  <link rel="stylesheet" href="css/style.css">  
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
-</head>  
-<body>  
-  <header class="text-center py-4">  
-    <h1>База знаний о странах мира</h1>  
-    <p class="lead">Узнайте всё о странах мира и проверьте свои знания!</p>  
-  </header>  
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная - База знаний о странах</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-  <nav class="text-center mb-4">  
-    <a href="index.html" class="mx-3">Главная</a>  
-    <a href="countries.html" class="mx-3">Информация о странах</a>  
-    <a href="tests.html" class="mx-3">Тесты по странам</a>  
-    <a href="contacts.html" class="mx-3">Контакты</a>  
-  </nav>  
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-  <main class="main-content container my-5">  
-    <h2 class="text-center mb-4">Добро пожаловать!</h2>  
+    ym(99979197, "init", {
+      clickmap:true,
+      trackLinks:true,
+      accurateTrackBounce:true,
+      webvisor:true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/99979197" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <!-- Стили для уведомления о сборе данных -->
+  <style>
+    .cookie-notification {
+      position: fixed;
+      background-color: rgba(0, 0, 0, .8);
+      bottom: 0;
+      width: 100%;
+      color: white;
+      padding: 15px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    .cookie-notification_hidden_yes {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .cookie-notification__header {
+      margin-bottom: 10px;
+      font-size: 23px;
+    }
+    .cookie-notification__body {
+      margin-bottom: 10px;
+    }
+    .cookie-notification__buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .cookie-notification__button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header class="text-center py-4">
+    <h1>База знаний о странах мира</h1>
+    <p class="lead">Узнайте всё о странах мира и проверьте свои знания!</p>
+  </header>
+
+  <nav class="text-center mb-4">
+    <a href="index.html" class="mx-3">Главная</a>
+    <a href="countries.html" class="mx-3">Информация о странах</a>
+    <a href="tests.html" class="mx-3">Тесты по странам</a>
+    <a href="contacts.html" class="mx-3">Контакты</a>
+  </nav>
+
+  <main class="main-content container my-5">
+    <h2 class="text-center mb-4">Добро пожаловать!</h2>
     
-    <div class="text-center mb-4">  
-        <img src="img/warld-map.png" alt="Карта мира" class="img-fluid rounded">  
-    </div>  
+    <div class="text-center mb-4">
+        <img src="img/warld-map.png" alt="Карта мира" class="img-fluid rounded">
+    </div>
 
-    <section>  
-        <h3>О проекте</h3>  
-        <p>Этот сайт создан для всех, кто хочет расширить свои знания о странах мира. Мы предлагаем уникальный контент о географических, культурных и исторических особенностях государств, а также тесты для проверки ваших знаний.</p>  
-        <p>Каждый посетитель сможет найти что-то полезное для себя, независимо от уровня правления. Мы стремимся предоставить наиболее актуальную и интересную информацию о странах.</p>  
-    </section>  
+    <section>
+        <h3>О проекте</h3>
+        <p>Этот сайт создан для всех, кто хочет расширить свои знания о странах мира. Мы предлагаем уникальный контент о географических, культурных и исторических особенностях государств, а также тесты для проверки ваших знаний.</p>
+        <p>Каждый посетитель сможет найти что-то полезное для себя, независимо от уровня правления. Мы стремимся предоставить наиболее актуальную и интересную информацию о странах.</p>
+    </section>
 
-    <section>  
-        <h3>Зачем это нужно?</h3>  
-        <p>В современном мире важно понимать культурные и географические особенности других стран. Это помогает строить приятные и плодотворные отношения, работать в международной среде и просто расширять свой кругозор.</p>  
-        <p>Наш сайт станет отличным помощником для тех, кто изучает мир вокруг. Здесь вы найдете много уникальной информации, которая позволит вам стать более осведомленным и опытным в вопросах, связанных с различными культурами.</p>  
-    </section>  
+    <section>
+        <h3>Зачем это нужно?</h3>
+        <p>В современном мире важно понимать культурные и географические особенности других стран. Это помогает строить приятные и плодотворные отношения, работать в международной среде и просто расширять свой кругозор.</p>
+        <p>Наш сайт станет отличным помощником для тех, кто изучает мир вокруг. Здесь вы найдете много уникальной информации, которая позволит вам стать более осведомленным и опытным в вопросах, связанных с различными культурами.</p>
+    </section>
 
-    <section>  
-        <h3>Что вы найдете на сайте?</h3>  
-        <ul>  
-            <li>Информация о странах: столицы, флаги, население и уникальные особенности.</li>  
-            <li>Интерактивные тесты: проверьте свои знания и улучшите их.</li>  
-            <li>Удобный интерфейс: всё структурировано и легко доступно.</li>  
-            <li>Фотогалереи: красочные фотографии, чтобы вы могли лучше понимать культуру и природу стран.</li>  
-            <li>Статьи и блоги: регулярные обновления и интересные факты о разных странах.</li>  
-        </ul>  
-    </section>  
+    <section>
+        <h3>Что вы найдете на сайте?</h3>
+        <ul>
+            <li>Информация о странах: столицы, флаги, население и уникальные особенности.</li>
+            <li>Интерактивные тесты: проверьте свои знания и улучшите их.</li>
+            <li>Удобный интерфейс: всё структурировано и легко доступно.</li>
+            <li>Фотогалереи: красочные фотографии, чтобы вы могли лучше понимать культуру и природу стран.</li>
+            <li>Статьи и блоги: регулярные обновления и интересные факты о разных странах.</li>
+        </ul>
+    </section>
 
-    <section>  
-        <h3>Популярные страны</h3>  
-        <div class="row">  
-            <div class="col-md-4">  
-                <div class="card mb-4">  
-                    <img src="img/france.webp" class="card-img-top" alt="Франция">  
-                    <div class="card-body">  
-                        <h5 class="card-title">Франция</h5>  
-                        <p class="card-text">Известна своей культурой, искусством и гастрономией. Обязательно попробуйте французские сыры и вина!</p>  
-                        <a href="countries.html#france" class="btn btn-primary">Узнать больше</a>  
-                    </div>  
-                </div>  
-            </div>  
-            <div class="col-md-4">  
-                <div class="card mb-4">  
-                    <img src="img/japan.svg" class="card-img-top" alt="Япония">  
-                    <div class="card-body">  
-                        <h5 class="card-title">Япония</h5>  
-                        <p class="card-text">Страна восходящего солнца, известная своими традициями, современными технологиями и вкусной кухней.</p>  
-                        <a href="countries.html#japan" class="btn btn-primary">Узнать больше</a>  
-                    </div>  
-                </div>  
-            </div>  
-            <div class="col-md-4">  
-                <div class="card mb-4">  
-                    <img src="img/brazil.png" class="card-img-top" alt="Бразилия">  
-                    <div class="card-body">  
-                        <h5 class="card-title">Бразилия</h5>  
-                        <p class="card-text">Известна своими пейзажами, культурой и карнавальной атмосферой. Не пропустите шанс насладиться самбой!</p>  
-                        <a href="countries.html#brazil" class="btn btn-primary">Узнать больше</a>  
-                    </div>  
-                </div>  
-            </div>  
-        </div>  
-    </section>  
+    <section>
+        <h3>Популярные страны</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="img/france.webp" class="card-img-top" alt="Франция">
+                    <div class="card-body">
+                        <h5 class="card-title">Франция</h5>
+                        <p class="card-text">Известна своей культурой, искусством и гастрономией. Обязательно попробуйте французские сыры и вина!</p>
+                        <a href="countries.html#france" class="btn btn-primary">Узнать больше</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="img/japan.svg" class="card-img-top" alt="Япония">
+                    <div class="card-body">
+                        <h5 class="card-title">Япония</h5>
+                        <p class="card-text">Страна восходящего солнца, известная своими традициями, современными технологиями и вкусной кухней.</p>
+                        <a href="countries.html#japan" class="btn btn-primary">Узнать больше</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="img/brazil.png" class="card-img-top" alt="Бразилия">
+                    <div class="card-body">
+                        <h5 class="card-title">Бразилия</h5>
+                        <p class="card-text">Известна своими пейзажами, культурой и карнавальной атмосферой. Не пропустите шанс насладиться самбой!</p>
+                        <a href="countries.html#brazil" class="btn btn-primary">Узнать больше</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section>  
-        <h3>Начните своё путешествие</h3>  
-        <p>Перейдите в разделы сайта и узнайте больше о странах мира. Изучайте, тестируйте и наслаждайтесь процессом обучения!</p>  
-        <div class="text-center">  
-            <a href="countries.html" class="btn btn-primary">Исследовать страны</a>  
-            <a href="tests.html" class="btn btn-secondary">Пройти тесты</a>  
-        </div>  
-    </section>  
-</main>  
+    <section>
+        <h3>Начните своё путешествие</h3>
+        <p>Перейдите в разделы сайта и узнайте больше о странах мира. Изучайте, тестируйте и наслаждайтесь процессом обучения!</p>
+        <div class="text-center">
+            <a href="countries.html" class="btn btn-primary">Исследовать страны</a>
+            <a href="tests.html" class="btn btn-secondary">Пройти тесты</a>
+        </div>
+    </section>
+  </main>
 
-  <footer class="text-center py-4">  
-    <p>&copy; 2024 База знаний о странах</p>  
-    <p>Следите за нашими обновлениями:   
-      <a href="#" class="text-decoration-none">VK</a> |   
-      <a href="#" class="text-decoration-none">Telegram</a> |   
-      <a href="#" class="text-decoration-none">YouTube</a>  
-    </p>  
-  </footer>  
-</body>  
+  <footer class="text-center py-4">
+    <p>&copy; 2024 База знаний о странах</p>
+    <p>Следите за нашими обновлениями:
+      <a href="#" class="text-decoration-none">VK</a> |
+      <a href="#" class="text-decoration-none">Telegram</a> |
+      <a href="#" class="text-decoration-none">YouTube</a>
+    </p>
+  </footer>
+
+  <!-- Уведомление о сборе данных -->
+  <div class="cookie-notification cookie-notification_hidden_yes">
+    <div class="cookie-notification__header">Предупреждение о сборе статистики</div>
+    <div class="cookie-notification__body">
+      <p>Этот сайт собирает статистику посещения и данные посетителей.</p>
+      <p><a href="/privacy.html" target="_blank">Политика конфиденциальности</a></p>
+    </div>
+    <div class="cookie-notification__buttons">
+      <button class="cookie-notification__button" id="yes">Я согласен</button>
+      <button class="cookie-notification__button" id="no">Я не согласен</button>
+    </div>
+  </div>
+
+  <!-- Скрипты для работы с уведомлением и Яндекс.Метрикой -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.2/js.cookie.js"></script>
+  <script type="text/javascript">
+    var messageElement = document.querySelector('.cookie-notification');
+    // Если нет cookies, то показываем плашку
+    if (!Cookies.get('agreement')) {
+      showMessage();
+    } else {
+      initCounter();
+    }
+
+    // Функция добавляет класс к DOM-элементу
+    function addClass(o, c) {
+      var re = new RegExp("(^|\\s)" + c + "(\\s|$)", "g");
+      if (!o || re.test(o.className)) {
+        return;
+      }
+      o.className = (o.className + " " + c).replace(/\s+/g, " ").replace(/(^ | $)/g, "");
+    }
+
+    // Функция удаляет класс из DOM-элемента
+    function removeClass(o, c) {
+      var re = new RegExp('(^|\\s)' + c + '(\\s|$)', 'g');
+      if (!o) {
+        return;
+      }
+      o.className = o.className.replace(re, '$1').replace(/\s+/g, ' ').replace(/(^ | $)/g, '');
+    }
+
+    // Функция, которая прячет предупреждение
+    function hideMessage() {
+      addClass(messageElement, 'cookie-notification_hidden_yes');
+    }
+
+    // Функция, которая показывает предупреждение
+    function showMessage() {
+      removeClass(messageElement, 'cookie-notification_hidden_yes');
+    }
+
+    function saveAnswer() {
+      // Прячем предупреждение
+      hideMessage();
+      // Ставим cookies
+      Cookies.set('agreement', '1');
+    }
+
+    function initCounter() {
+      try {
+        ym(99979197, 'init', {});
+        saveAnswer();
+      } catch (error) {
+        console.error('Ошибка при инициализации Яндекс.Метрики:', error);
+      }
+    }
+
+    // Нажатие кнопки "Я согласен"
+    document.querySelector('#yes').addEventListener('click', function () {
+      initCounter();
+    });
+
+    // Нажатие кнопки "Я не согласен"
+    document.querySelector('#no').addEventListener('click', function () {
+      hideMessage();
+    });
+  </script>
+</body>
 </html>
